@@ -1,0 +1,44 @@
+{
+  "name": "sunrise-management-system-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "frontend": "cd client && npm start",
+    "backend": "nodemon server/server.js",
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+    "heroku-postbuild": " npm install --prefix client && npm run build --prefix client "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bennyyoung/sunrise-keepers-management-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.6",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.15",
+    "multer": "^1.4.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2"
+  },
+  "bugs": {
+    "url": "https://github.com/Bennyyoung/sunrise-keepers-management-backend/issues"
+  },
+  "homepage": "https://github.com/Bennyyoung/sunrise-keepers-management-backend#readme"
+
+}
