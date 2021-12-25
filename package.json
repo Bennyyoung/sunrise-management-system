@@ -39,7 +39,6 @@
   "bugs": {
     "url": "https://github.com/Bennyyoung/sunrise-keepers-management-backend/issues"
   },
-  "homepage": "https://github.com/Bennyyoung/sunrise-keepers-management-backend#readme",
-  "proxy": "https://managesunrise.herokuapp.com"
+  "homepage": "https://github.com/Bennyyoung/sunrise-keepers-management-backend#readme"
 
 }
