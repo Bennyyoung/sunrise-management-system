@@ -21,7 +21,7 @@ export default function Login() {
     email,
     password,
    };
-   await axios.post('https://managesunrise.herokuapp.com/auth/login',
+   await axios.post('/auth/login',
     loginData,
     // {
     //  headers: { JWT_SECRET: process.env.JWT_SECRET }
