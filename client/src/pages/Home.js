@@ -13,7 +13,7 @@ export default class Home extends Component {
 
 
   componentDidMount() {
-    axios.get('/students')
+    axios.get('https://managesunrise.herokuapp.com/students')
       .then(response => {
         this.setState({
           students: response.data.length,
@@ -21,7 +21,7 @@ export default class Home extends Component {
       })
 
 
-    axios.get('/staffs')
+    axios.get('https://managesunrise.herokuapp.com/staffs')
       .then(response => {
         this.setState({
           staff: response.data.length
