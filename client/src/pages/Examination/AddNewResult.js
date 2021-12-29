@@ -15,6 +15,8 @@ export default class AddNewResult extends Component {
     this.onChangeTest = this.onChangeTest.bind(this);
     this.onChangeExam = this.onChangeExam.bind(this);
     this.onChangeResultDate = this.onChangeResultDate.bind(this);
+    this.onChangeSession = this.onChangeSession.bind(this);
+    this.onChangeTerm = this.onChangeTerm.bind(this);
     this.onChangeResponsible = this.onChangeResponsible.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -22,9 +24,11 @@ export default class AddNewResult extends Component {
       studentfullname: '',
       subject: '',
       studentclass: '',
-      test: Number,
-      exam: Number,
+      test: '',
+      exam: '',
       resultdate: new Date(),
+      session: '',
+      term: '',
       responsible: '',
       snames: [],
     };
@@ -74,10 +78,21 @@ export default class AddNewResult extends Component {
       exam: e.target.value
     })
   }
-
+  
   onChangeResultDate(resultdate) {
     this.setState({
       resultdate: resultdate
+    })
+  }
+
+  onChangeSession(e) {
+    this.setState({
+      session: e.target.value
+    })
+  }
+  onChangeTerm(e) {
+    this.setState({
+      TransformStreamDefaultController: e.target.value
     })
   }
 
@@ -98,6 +113,8 @@ export default class AddNewResult extends Component {
       test: this.state.test,
       exam: this.state.exam,
       resultdate: this.state.resultdate,
+      session: this.state.session,
+      term: this.state.session,
       responsible: this.state.responsible
     }
 
@@ -124,6 +141,8 @@ export default class AddNewResult extends Component {
       test: '',
       exam: '',
       resultdate: new Date(),
+      session: '',
+      term: '',
       responsible: ''
     })
   }
@@ -260,6 +279,30 @@ export default class AddNewResult extends Component {
                           />
                         </div>
                       </div>
+
+                      <div className="col-lg-6 col-md-6 col-sm-12">
+                        <div className="form-group">
+                          <label className="form-label">Session</label>
+                          <select className="form-control" value={this.state.session} onChange={this.onChangeSession} required>
+                            <option value="Select a session">Please select a Session</option>
+                            <option value="2020/2021">2020/2021</option>
+                            <option value="2021/2022">2021/2022</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="col-lg-6 col-md-6 col-sm-12">
+                        <div className="form-group">
+                          <label className="form-label">Term</label>
+                          <select className="form-control" value={this.state.term} onChange={this.onChangeTerm} required>
+                            <option value="Select a session">Please select the Term</option>
+                            <option value="1st Term">1st Term</option>
+                            <option value="2nd Term">2nd Term</option>
+                            <option value="3rd Term">3rd Term</option>
+                          </select>
+                        </div>
+                      </div>
+
                       <div className="col-lg-6 col-md-6 col-sm-12">
                         <div className="form-group">
                           <label className="form-label">Responsible</label>

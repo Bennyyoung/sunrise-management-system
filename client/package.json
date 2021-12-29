@@ -5,6 +5,7 @@
   "dependencies": {
     "@fullcalendar/daygrid": "^5.5.0",
     "@fullcalendar/react": "^5.5.0",
+    "@mui/icons-material": "^5.2.5",
     "axios": "^0.21.1",
     "cra-template": "1.1.1",
     "downloadjs": "^1.4.7",
@@ -39,5 +40,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

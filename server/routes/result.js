@@ -16,6 +16,8 @@ router.route('/add').post((req, res) => {
   const test = req.body.test;
   const exam = req.body.exam;
   const resultdate = Date.parse(req.body.resultdate);
+  const session = req.body.session;
+  const term = req.body.term;
   const responsible = req.body.responsible;
 
   const newResult = new Result({
@@ -25,6 +27,8 @@ router.route('/add').post((req, res) => {
     test,
     exam,
     resultdate,
+    session,
+    term,
     responsible
   });
 
@@ -48,11 +52,13 @@ router.route('/update/:id').post((req, res) => {
   Result.findByIdAndUpdate(req.params.id)
     .then(result => {
       result.studentfullname = req.body.studentfullname
-      student.studentclass = req.body.studentclass;
+      result.studentclass = req.body.studentclass;
       result.subject = req.body.subject;
       result.test = req.body.test;
       result.exam = req.body.exam;
       result.resultdate = Date.parse(req.body.resultdate);
+      result.session = req.body.session;
+      result.term = req.body.term;
       result.responsible = req.body.responsible;
 
       result.save()

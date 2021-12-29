@@ -34,7 +34,7 @@ export default class AllStaffs extends Component {
  }
 
  componentDidMount() {
-  axios.get(`${process.env.BACK_END}/staffs`)
+  axios.get('/staffs')
    .then(response => {
     this.setState({ staffs: response.data })
    })
@@ -44,7 +44,7 @@ export default class AllStaffs extends Component {
  }
 
  deleteStaff(id) {
-  axios.delete(`${process.env.BACK_END}/staffs/`+ id)
+  axios.delete('/staffs/'+ id)
    .then(res => {
     console.log(res.data)
     console.log('Staff successfully deleted')

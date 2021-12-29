@@ -27,6 +27,14 @@ const resultSchema = new Schema({
   type: Date,
   required: true
  },
+ session: {
+  type: String,
+  required: true
+ },
+ term: {
+  type: String,
+  required: true
+ },
  responsible: {
   type: String,
   required: true

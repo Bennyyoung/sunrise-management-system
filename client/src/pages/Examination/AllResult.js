@@ -16,6 +16,8 @@ const Result = props => (
     </td>
     {/* <td>{(props.result.exam + props.result.test) / 3}</td> */}
     <td>{props.result.resultdate.substring(0, 10)}</td>
+    <td>{props.result.session}</td>
+    <td>{props.result.term}</td>
     <td>{props.result.responsible}</td>
 
     <td style={{ textAlign: 'center', padding: '0 1rem 0 1rem' }}>
@@ -119,6 +121,8 @@ export default class AllResult extends Component {
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Total</th>
                               {/* <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Average</th> */}
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Result Date</th>
+                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Session</th>
+                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Term</th>
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Responsible</th>
                             </tr>
                           </thead>

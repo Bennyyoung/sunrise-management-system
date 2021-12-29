@@ -17,7 +17,7 @@ export default function Sidebar() {
  return (
   <>
    <button type="button" className="btn btn-primary" onClick={handleToggle}>
-    Toggle SideBar
+    Move Left
    </button><br />
    <div className={isOpen ? "dlabnav" : "show-nav"} id="menu">
     <div className="dlabnav-scroll">
@@ -91,6 +91,8 @@ export default function Sidebar() {
           <ul aria-expanded="false">
            <li><Link to="/all-results">Result List</Link></li>
            <li><Link to="/add-new-result">Add New Result</Link></li>
+           <li><Link to="/view-by-class">View By Class</Link></li>
+
            {/* <li><Link to="/edit-grade">Edit Grade List</Link></li> */}
            {/* <li><Link to="about-student.html">About Students</Link></li> */}
           </ul>
