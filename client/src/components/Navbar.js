@@ -6,16 +6,25 @@ import LogoutBtn from './auth/LogoutBtn';
 
 
 
-export default function Navbar() {
+export default function Navbar({ handleToggle }) {
   const { loggedIn } = useContext(AuthContext);
 
   return (
     <div>
       <div className="nav-header">
-        <Link to="/" className="brand-logo">
-          <img className="logo-abbr" src="images/logo-white-3.png" alt="" />
-          <img className="logo-compact" src="images/logo-text-white.png" alt="" />
-        </Link>
+
+        <div style={{ padding: '2rem 1.5rem' }} onClick={handleToggle}>
+          <i
+            className='fa fa-bars'
+            id='sidebarIcon'
+            aria-hidden='true'
+            style={{ color: 'white', fontSize: '1.5rem', alignItems: 'center' }}
+          ></i>
+
+        </div>
+
+
+
 
         {/* <div className="nav-control">
           <div className="hamburger">
@@ -25,11 +34,14 @@ export default function Navbar() {
       </div>
 
       <div className="header">
+            <Link to="/" className="brand-logo">
+              <img className="logo-abbr" src="images/logo-white-3.png" alt="" style={{ paddingLeft: '-5rem' }} />
+            </Link>
         <div className="header-content">
-          <nav className="navbar navbar-expand">
+          <nav className="navbar">
             <div className="collapse navbar-collapse justify-content-between">
               <div className="header-center">
-                <h3 style={{color: 'white', justifyContent: 'center'}}>Sunrise School Management System</h3>
+                <h6 style={{ color: 'white', justifyContent: 'center' }}>Sunrise School Management System</h6>
               </div>
               {
                 !loggedIn && (

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import AuthContext from './context/AuthContext'
 import { BrowserRouter, HashRouter,Switch, Route } from "react-router-dom"
 // import TeachersHome from "./pages/ForTeachers/TeachersHome";
@@ -9,11 +9,19 @@ import { Navbar, Sidebar, Login, Register } from './components'
 
 function Router() {
  const { loggedIn } = useContext(AuthContext);
+
+ const [isOpen, setIsOpen] = useState(false)
+
+
+ const handleToggle = () => {
+         setIsOpen(!isOpen)
+ }
+
  return (
   <div>
    <HashRouter>
-    <Navbar />
-    <Sidebar />
+    <Navbar handleToggle={handleToggle} isOpen={isOpen} />
+    <Sidebar handleToggle={handleToggle} isOpen={isOpen} />
     <Switch>
      <Route exact path="/" component={Home} />
      {
@@ -51,8 +59,8 @@ function Router() {
         <Route path="/grade-2" component={Grade2} />
         <Route path="/grade-1" component={Grade1} />
         <Route path="/nursery-3" component={Nursery3} />
-        <Route path="/nursery-2" component={Nursery3} />
-        <Route path="/nursery-1" component={Nursery3} />
+        <Route path="/nursery-2" component={Nursery2} />
+        <Route path="/nursery-1" component={Nursery1} />
         <Route path="/creche" component={Creche} />
 
 

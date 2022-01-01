@@ -73,6 +73,10 @@ export default class AllResult extends Component {
     ))
   }
   render() {
+    const print = () => {
+      window.print()
+    }
+
     return (
       <div className="content-body">
         <div className="container-fluid">
@@ -105,6 +109,13 @@ export default class AllResult extends Component {
                   <div className="card">
                     <div className="card-header">
                       <h4 className="card-title">All Students List  </h4>
+
+                      <div>
+                        <button onClick={print} className=' btn btn-primary'>
+                          Print All
+                        </button>
+                      </div>
+
                       <Link to="/add-new-result" className="btn btn-primary">+ Add new</Link>
                     </div>
                     <div className="card-body">
