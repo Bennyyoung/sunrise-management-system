@@ -225,18 +225,31 @@ export default class EditResult extends Component {
                         <div className="form-group">
                           <label className="form-label">Subject</label>
                           <select className="form-control" value={this.state.subject} onChange={this.onChangeSubject} required>
+                            <option value="Class">Please select a subject</option>
+                            <option value="Diction">Diction</option>
                             <option value="Language Skill">Language Skill</option>
                             <option value="Mathematics Skill">Mathematics Skill</option>
-                            <option value="Social Habit">Social Habit</option>
-                            <option value="Scribling">Scribling</option>
+                            <option value="Social Habits">Social Habits</option>
+                            <option value="Handwriting">Handwriting</option>
                             <option value="Nature Studies">Nature Studies</option>
+                            <option value="Bible Study">Bible Study</option>
+                            <option value="Language Arts">Language Arts</option>
+                            <option value="Expresses Idea/Story Telling">Expresses Idea/Story Telling</option>
+                            <option value="Quantitative Reasoning">Quantitative Reasoning</option>
+                            <option value="Verbal Reasoning">Verbal Reasoning</option>
+                            <option value="Health Habits">Health Habits</option>
+                            <option value="Creative Arts Aptitude">Creative Arts Aptitude</option>
+                            <option value="Rhymes">Rhymes</option>
+                            <option value="Phonics">Phonics</option>
+                            <option value="Reading">Reading</option>
+
+                            <option value="Scribling">Scribling</option>
                             <option value="Bible Knowledge">Bible Knowledge</option>
                             <option value="Colouring">Colouring</option>
                             <option value="Civic Education">Civic Education</option>
                             <option value="Igbo">Igbo</option>
                             <option value="Non Verbal Reasoning">Non Verbal Reasoning</option>
                             <option value="Project">Project</option>
-                            <option value="Diction">Diction</option>
 
                             <option value="English Language">English Language</option>
                             <option value="Mathematics">Mathematics</option>
@@ -244,16 +257,15 @@ export default class EditResult extends Component {
                             <option value="Basic Science">Basic Science</option>
                             <option value="CRK">CRK</option>
                             <option value="Home Economics">Home Economics</option>
-                            <option value="Verbal Reasoning">Verbal Reasoning</option>
-                            <option value="Quantitative Reasoning">Quantitative Reasoning</option>
                             <option value="Agric Science">Agric Science</option>
-                            <option value="Handwriting">Handwriting</option>
                             <option value="French">French</option>
                             <option value="Creative Arts">Creative Arts</option>
                             <option value="Computer Science">Computer Science</option>
                             <option value="P.H.E">P.H.E</option>
                             <option value="Vocational Aptitude">Vocational Aptitude</option>
                             <option value="History">History</option>
+
+
                           </select>
                         </div>
                       </div>

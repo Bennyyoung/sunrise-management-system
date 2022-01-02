@@ -22,6 +22,7 @@ export { default as Nursery3 } from './Examination/Nursery3'
 export { default as Nursery2 } from './Examination/Nursery2' 
 export { default as Nursery1 } from './Examination/Nursery1' 
 export { default as Creche } from './Examination/Creche' 
+export { default as ReportSheet } from './Examination/ReportSheet' 
 
 export { default as AddNewExpense } from './Accounts/AddNewExpense'
 export { default as AllExpenses } from './Accounts/AllExpenses'

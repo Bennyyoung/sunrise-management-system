@@ -108,7 +108,7 @@ export default class AllResult extends Component {
                 <div id="list-view" className="tab-pane fade active show col-lg-12">
                   <div className="card">
                     <div className="card-header">
-                      <h4 className="card-title">All Students List  </h4>
+                      <h4 className="card-title">All Students Results  </h4>
 
                       <div>
                         <button onClick={print} className=' btn btn-primary'>
@@ -120,21 +120,22 @@ export default class AllResult extends Component {
                     </div>
                     <div className="card-body">
                       <div className="table-responsive">
-                        <table id="example3" className="display" style={{ minWidth: "845px" }}>
+                        <table id="example3" className="table table-striped table-bordered" style={{ minWidth: "845px" }}>
                           <thead>
                             <tr>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Student Name</th>
+                              <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Student Name</th>
 
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Subject</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Test</th>
+                              <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Subject</th>
+                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)', padding: '1.5rem 0' }}>Test</th>
 
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Exam</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Total</th>
-                              {/* <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Average</th> */}
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Result Date</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Session</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Term</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Responsible</th>
+                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)' }}>Exam</th>
+                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)' }}>Total</th>
+                              {/* <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Average</th> */}
+                              <th scope="col" style={{ textAlign: 'center', padding: '0 0.5rem 0 0.5rem' }}>Result Date</th>
+                              <th scope="col" style={{ textAlign: 'center', padding: '0 0.8rem 0 0.8rem' }}>Session</th>
+                              <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Term</th>
+                              <th scope="col" style={{ textAlign: 'center', padding: '0 1rem 0 1rem' }}>Responsible</th>
+                              <th scope="col" style={{ textAlign: 'center', padding: '0 1rem 0 1rem' }}>Action</th>
                             </tr>
                           </thead>
                           <tbody style={{ textAlign: 'center', paddingLeft: '2rem' }}>

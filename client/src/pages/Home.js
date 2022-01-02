@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
   constructor(props) {
@@ -41,49 +42,58 @@ export default class Home extends Component {
         <div className="container-fluid">
 
           <div className="row">
-            <div className="col-xl-3 col-xxl-3 col-sm-6">
-              <div className="widget-stat card bg-primary">
-                <div className="card-body">
-                  <div className="media">
-                    <span className="mr-3">
-                      <i className="la la-users"></i>
-                    </span>
 
-                    <div className="media-body text-white">
-                      <p className="mb-1">Total Students</p>
-                      <h3 className="text-white">
-                        {this.state.students}
-                      </h3>
-                      <div className="progress mb-2 bg-white">
-                        <div className="progress-bar progress-animated bg-light" style={{ width: '80%' }}></div>
+            <div className="col-xl-3 col-xxl-3 col-sm-6">
+              <Link to="/all-students">
+                <div className="widget-stat card bg-primary">
+                  <div className="card-body">
+                    <div className="media">
+                      <span className="mr-3">
+                        <i className="la la-users"></i>
+                      </span>
+
+                      <div className="media-body text-white">
+                        <p className="mb-1">Total Students</p>
+                        <h3 className="text-white">
+                          {this.state.students}
+                        </h3>
+                        <div className="progress mb-2 bg-white">
+                          <div className="progress-bar progress-animated bg-light" style={{ width: '80%' }}></div>
+                        </div>
+                        <small>5 intakes in 20 Days(From Jan)</small>
                       </div>
-                      <small>5 intakes in 20 Days(From Jan)</small>
+
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
 
+
+
             <div className="col-xl-3 col-xxl-3 col-sm-6">
-              <div className="widget-stat card bg-warning">
-                <div className="card-body">
-                  <div className="media">
-                    <span className="mr-3">
-                      <i className="la la-user"></i>
-                    </span>
-                    <div className="media-body text-white">
-                      <p className="mb-1">Total Staff</p>
-                      <h3 className="text-white">
-                        {this.state.staff}
-                      </h3>
-                      <div className="progress mb-2 bg-white">
-                        <div className="progress-bar progress-animated bg-light" style={{ width: '80%' }}></div>
+              <Link to="/all-staffs">
+                <div className="widget-stat card bg-warning">
+                  <div className="card-body">
+                    <div className="media">
+                      <span className="mr-3">
+                        <i className="la la-user"></i>
+                      </span>
+                      <div className="media-body text-white">
+                        <p className="mb-1">Total Staff</p>
+                        <h3 className="text-white">
+                          {this.state.staff}
+                        </h3>
+                        <div className="progress mb-2 bg-white">
+                          <div className="progress-bar progress-animated bg-light" style={{ width: '80%' }}></div>
+                        </div>
+                        {/* <small>5 intakes in 20 Days(From Jan)</small> */}
                       </div>
-                      {/* <small>5 intakes in 20 Days(From Jan)</small> */}
                     </div>
                   </div>
                 </div>
-              </div>
+
+              </Link>
             </div>
 
             <div className="col-xl-3 col-xxl-3 col-sm-6">
@@ -144,11 +154,11 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
-           
+
           </div>
 
         </div>
-      </div>
+      </div >
     )
   }
 }
