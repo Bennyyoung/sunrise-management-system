@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom'
 
 const Result = props => (
   <tr>
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.studentfullname}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.studentfullname : 'null'}</td>
 
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.subject}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.subject : 'null'}</td>
 
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.test}</td>
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.exam}</td>
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.exam + props.result.test}</td>
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.resultdate.substring(0, 10)}</td>
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.session}</td>
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.term}</td>
-    <td>{props.result.studentclass === 'Nursery 2' && props.result.responsible}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.test : 'null'}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.exam : 'null'}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.exam + props.result.test : 'null'}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.resultdate.substring(0, 10) : 'null'}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.session : 'null'}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.term : 'null'}</td>
+    <td>{props.result.studentclass === 'Nursery 2' ? props.result.responsible : 'null'}</td>
 
   </tr>
 )
