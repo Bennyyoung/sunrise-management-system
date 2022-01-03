@@ -126,10 +126,10 @@ export default class AllResult extends Component {
                               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Student Name</th>
 
                               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Subject</th>
-                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)', padding: '1.5rem 0' }}>Test</th>
+                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)', padding: '1.5rem 0' }}>Test (40)</th>
 
-                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)' }}>Exam</th>
-                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)' }}>Total</th>
+                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)' }}>Exam (60)</th>
+                              <th scope="col" style={{ textAlign: 'center', transform: 'rotate(-90deg)' }}>Total (100%)</th>
                               {/* <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Average</th> */}
                               <th scope="col" style={{ textAlign: 'center', padding: '0 0.5rem 0 0.5rem' }}>Result Date</th>
                               <th scope="col" style={{ textAlign: 'center', padding: '0 0.8rem 0 0.8rem' }}>Session</th>

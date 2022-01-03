@@ -237,6 +237,8 @@ export default class AddNewResult extends Component {
                             <option value="Rhymes">Rhymes</option>
                             <option value="Phonics">Phonics</option>
                             <option value="Reading">Reading</option>
+                            <option value="Projects">Projects</option>
+
 
                             <option value="Scribling">Scribling</option>
                             <option value="Bible Knowledge">Bible Knowledge</option>
@@ -244,7 +246,6 @@ export default class AddNewResult extends Component {
                             <option value="Civic Education">Civic Education</option>
                             <option value="Igbo">Igbo</option>
                             <option value="Non Verbal Reasoning">Non Verbal Reasoning</option>
-                            <option value="Project">Project</option>
 
                             <option value="English Language">English Language</option>
                             <option value="Mathematics">Mathematics</option>
@@ -267,14 +268,14 @@ export default class AddNewResult extends Component {
 
                       <div className="col-lg-6 col-md-6 col-sm-12">
                         <div className="form-group">
-                          <label className="form-label">Test</label>
+                          <label className="form-label">Test (40)</label>
                           <input type="number" className="form-control" value={this.state.test} onChange={this.onChangeTest} required />
                         </div>
                       </div>
 
                       <div className="col-lg-6 col-md-6 col-sm-12">
                         <div className="form-group">
-                          <label className="form-label">Exam</label>
+                          <label className="form-label">Exam (60)</label>
                           <input type="number" className="form-control" value={this.state.exam} onChange={this.onChangeExam} required />
                         </div>
                       </div>

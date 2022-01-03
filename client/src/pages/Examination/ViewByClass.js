@@ -22,103 +22,76 @@ export default class ViewByClass extends Component {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Grade 5</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/grade-5" className="btn btn-primary">Grade 5 Results</Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Grade 4</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/grade-4" className="btn btn-primary">Grade 4 Results</Link>
+          <div className="center">
 
-                </div>
-              </div>
-            </div>
+            <ul class="list-group center">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/grade-5" className="btn btn-primary">Grade 5 Results</Link>
 
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Grade 3</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/grade-3" className="btn btn-primary">Grade 3 Results</Link>
+                <span class="badge badge-primary badge-pill">14</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/grade-4" className="btn btn-primary">Grade 4 Results</Link>
 
-                </div>
-              </div>
-            </div>
+                <span class="badge badge-primary badge-pill">2</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/grade-3" className="btn btn-primary">Grade 3 Results</Link>
 
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Grade 2</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/grade-2" className="btn btn-primary">Grade 2 Results</Link>
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/grade-2" className="btn btn-primary">Grade 2 Results</Link>
 
-                </div>
-              </div>
-            </div>
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/grade-3" className="btn btn-primary">Grade 3 Results</Link>
 
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Grade 1</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/grade-1" className="btn btn-primary">Grade 1 Results</Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Nursery 3</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/nursery-3" className="btn btn-primary">Nursery 3 Results</Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Nursery 2</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/nursery-2" className="btn btn-primary">Nursery 2 Results</Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Nursery 1</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/nursery-1" className="btn btn-primary">Nursery 1 Results</Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Creche</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/creche" className="btn btn-primary">Creche Results</Link>
-                </div>
-              </div>
-            </div>
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/grade-2" className="btn btn-primary">Grade 2 Results</Link>
+
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/grade-2" className="btn btn-primary">Grade 2 Results</Link>
+
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/grade-1" className="btn btn-primary">Grade 1 Results</Link>
+
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/nursery-3" className="btn btn-primary">Nursery 3 Results</Link>
+
+
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/nursery-2" className="btn btn-primary">Nursery 2 Results</Link>
+
+
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/nursery-1" className="btn btn-primary">Nursery 1 Results</Link>
+
+
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <Link to="/creche" className="btn btn-primary">Creche Results</Link>
+
+
+
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+
+            </ul>
 
           </div>
 

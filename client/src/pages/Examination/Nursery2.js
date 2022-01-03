@@ -13,6 +13,7 @@ const Result = props => (
     <td>{props.result.studentclass === 'Nursery 2' && props.result.exam}</td>
     <td>{props.result.studentclass === 'Nursery 2' && props.result.exam + props.result.test}</td>
     <td>{props.result.studentclass === 'Nursery 2' && props.result.resultdate.substring(0, 10)}</td>
+    <td>{props.result.studentclass === 'Nursery 2' && props.result.session}</td>
     <td>{props.result.studentclass === 'Nursery 2' && props.result.term}</td>
     <td>{props.result.studentclass === 'Nursery 2' && props.result.responsible}</td>
 

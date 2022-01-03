@@ -242,6 +242,8 @@ export default class EditResult extends Component {
                             <option value="Rhymes">Rhymes</option>
                             <option value="Phonics">Phonics</option>
                             <option value="Reading">Reading</option>
+                            <option value="Projects">Projects</option>
+
 
                             <option value="Scribling">Scribling</option>
                             <option value="Bible Knowledge">Bible Knowledge</option>
@@ -249,7 +251,6 @@ export default class EditResult extends Component {
                             <option value="Civic Education">Civic Education</option>
                             <option value="Igbo">Igbo</option>
                             <option value="Non Verbal Reasoning">Non Verbal Reasoning</option>
-                            <option value="Project">Project</option>
 
                             <option value="English Language">English Language</option>
                             <option value="Mathematics">Mathematics</option>
