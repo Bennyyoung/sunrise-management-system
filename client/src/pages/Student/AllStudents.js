@@ -111,11 +111,10 @@ export default class AllStudent extends Component {
                       <a href="/add-student" className="btn btn-primary">+ Add new</a>
                     </div>
                     <div className="card-body">
-                      <div className="table-responsive recentOrderTable">
-                        <table className="table verticle-middle table-responsive-md">
+                      <div className="table-responsive">
+                        <table className="table table-striped table-bordered">
                           <thead>
                             <tr>
-                              <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>First Name</th>
                               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>First Name</th>
                               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Last Name</th>
                               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Parents Email</th>

@@ -105,7 +105,7 @@ export default class AllStaffs extends Component {
           </div>
           <div className="card-body">
            <div className="table-responsive">
-            <table className="display" style={{ minWidth: "845px" }}>
+            <table className="table table-striped table-bordered" style={{ minWidth: "845px" }}>
              <thead>
               <tr>
                <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>First Name</th>
