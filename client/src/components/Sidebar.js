@@ -4,7 +4,7 @@ import AuthContext from "../context/AuthContext";
 import LogoutBtn from './auth/LogoutBtn';
 
 
-export default function Sidebar( { handleToggle, isOpen }) {
+export default function Sidebar({ handleToggle, isOpen }) {
         // const [isOpen, setIsOpen] = useState(false)
 
 
@@ -93,7 +93,16 @@ export default function Sidebar( { handleToggle, isOpen }) {
                                                                                 <ul aria-expanded="false">
                                                                                         <li><Link to="/all-results">Result List</Link></li>
                                                                                         <li><Link to="/add-new-result">Add New Result</Link></li>
-                                                                                        <li><Link to="/view-by-class">View By Class</Link></li>
+
+                                                                                        <li><Link to="/grade-5-result">Grade 5 Results</Link></li>
+                                                                                        <li><Link to="/grade-4-result">Grade 4 Results</Link></li>
+                                                                                        <li><Link to="/grade-3-result">Grade 3 Results</Link></li>
+                                                                                        <li><Link to="/grade-2-result">Grade 2 Results</Link></li>
+                                                                                        <li><Link to="/grade-1-result">Grade 1 Results</Link></li>
+                                                                                        <li><Link to="/nursery-1-result">Nursery 1 Results</Link></li>
+                                                                                        <li><Link to="/nursery-2-result">Nursery 2 Results</Link></li>
+                                                                                        <li><Link to="/nursery-3-result">Nursery 3 Results</Link></li>
+                                                                                        <li><Link to="/creche-result">Creche Results</Link></li>
 
                                                                                         {/* <li><Link to="/edit-grade">Edit Grade List</Link></li> */}
                                                                                         {/* <li><Link to="about-student.html">About Students</Link></li> */}

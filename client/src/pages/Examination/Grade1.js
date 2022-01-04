@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom'
 
 const Result = props => (
   <tr>
-    <td>{props.result.studentclass === 'Grade 1' && props.result.studentfullname}</td>
+    <td>{props.result.studentfullname}</td>
 
-    <td>{props.result.studentclass === 'Grade 1' && props.result.subject}</td>
+    <td>{props.result.subject}</td>
 
-    <td>{props.result.studentclass === 'Grade 1' && props.result.test}</td>
-    <td>{props.result.studentclass === 'Grade 1' && props.result.exam}</td>
-    <td>{props.result.studentclass === 'Grade 1' && props.result.exam + props.result.test}</td>
-    <td>{props.result.studentclass === 'Grade 1' && props.result.resultdate.substring(0, 10)}</td>
-    <td>{props.result.studentclass === 'Grade 1' && props.result.session}</td>
-    <td>{props.result.studentclass === 'Grade 1' && props.result.term}</td>
-    <td>{props.result.studentclass === 'Grade 1' && props.result.responsible}</td>
+    <td>{props.result.test}</td>
+    <td>{props.result.exam}</td>
+    <td>{props.result.exam + props.result.test}</td>
+    <td>{props.result.resultdate.substring(0, 10)}</td>
+    <td>{props.result.session}</td>
+    <td>{props.result.term}</td>
+    <td>{props.result.responsible}</td>
 
   </tr>
 )
@@ -55,8 +55,16 @@ export default class Grade1 extends Component {
 
   }
 
+  // resultList() {
+  //   return (this.state.results.map(
+  //     currentresult => {
+  //       return <Result result={currentresult} deleteResult={this.deleteResult} key={currentresult._id} />
+  //     }
+  //   ))
+  // }
+
   resultList() {
-    return (this.state.results.map(
+    return (this.state.results.filter(currentresult => currentresult.studentclass === 'Grade 1' && currentresult).map(
       currentresult => {
         return <Result result={currentresult} deleteResult={this.deleteResult} key={currentresult._id} />
       }
@@ -102,7 +110,7 @@ export default class Grade1 extends Component {
                 <div id="list-view" className="tab-pane fade active show col-lg-12">
                   <div className="card">
                     <div className="card-header">
-                      <h4 className="card-title">All Students List  </h4>
+                      <h4 className="card-title">Grade 1 Result List  </h4>
 
                       <div>
                         <button onClick={print} className=' btn btn-primary'>

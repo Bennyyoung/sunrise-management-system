@@ -53,15 +53,15 @@ function Router() {
         <Route path="/add-new-result" component={AddNewResult} />
         <Route path="/edit-result/:id" component={EditResult} />
         <Route path="/view-by-class" component={ViewByClass} />
-        <Route path="/grade-5" component={Grade5} />
-        <Route path="/grade-4" component={Grade4} />
-        <Route path="/grade-3" component={Grade3} />
-        <Route path="/grade-2" component={Grade2} />
-        <Route path="/grade-1" component={Grade1} />
-        <Route path="/nursery-3" component={Nursery3} />
-        <Route path="/nursery-2" component={Nursery2} />
-        <Route path="/nursery-1" component={Nursery1} />
-        <Route path="/creche" component={Creche} />
+        <Route path="/grade-5-result" component={Grade5} />
+        <Route path="/grade-4-result" component={Grade4} />
+        <Route path="/grade-3-result" component={Grade3} />
+        <Route path="/grade-2-result" component={Grade2} />
+        <Route path="/grade-1-result" component={Grade1} />
+        <Route path="/nursery-3-result" component={Nursery3} />
+        <Route path="/nursery-2-result" component={Nursery2} />
+        <Route path="/nursery-1-result" component={Nursery1} />
+        <Route path="/creche-result" component={Creche} />
 
 
         <Route path="/add-new-expense" component={AddNewExpense} />

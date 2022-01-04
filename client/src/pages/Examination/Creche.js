@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom'
 
 const Result = props => (
   <tr>
-    <td>{props.result.studentclass === 'creche' && props.result.studentfullname}</td>
+    <td>{props.result.studentfullname}</td>
 
-    <td>{props.result.studentclass === 'creche' && props.result.subject}</td>
+    <td>{props.result.subject}</td>
 
-    <td>{props.result.studentclass === 'creche' && props.result.test}</td>
-    <td>{props.result.studentclass === 'creche' && props.result.exam}</td>
-    <td>{props.result.studentclass === 'creche' && props.result.exam + props.result.test}</td>
-    <td>{props.result.studentclass === 'creche' && props.result.resultdate.substring(0, 10)}</td>
-    <td>{props.result.studentclass === 'creche' && props.result.session}</td>
-    <td>{props.result.studentclass === 'creche' && props.result.term}</td>
-    <td>{props.result.studentclass === 'creche' && props.result.responsible}</td>
+    <td>{props.result.test}</td>
+    <td>{props.result.exam}</td>
+    <td>{props.result.exam + props.result.test}</td>
+    <td>{props.result.resultdate.substring(0, 10)}</td>
+    <td>{props.result.session}</td>
+    <td>{props.result.term}</td>
+    <td>{props.result.responsible}</td>
 
   </tr>
 )
@@ -55,8 +55,16 @@ export default class Creche extends Component {
 
   }
 
+  // resultList() {
+  //   return (this.state.results.map(
+  //     currentresult => {
+  //       return <Result result={currentresult} deleteResult={this.deleteResult} key={currentresult._id} />
+  //     }
+  //   ))
+  // }
+
   resultList() {
-    return (this.state.results.map(
+    return (this.state.results.filter(currentresult => currentresult.studentclass === 'creche' && currentresult).map(
       currentresult => {
         return <Result result={currentresult} deleteResult={this.deleteResult} key={currentresult._id} />
       }

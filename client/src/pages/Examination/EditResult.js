@@ -87,7 +87,7 @@ export default class EditResult extends Component {
 
   onChangeTest(e) {
     this.setState({
-      classtest: e.target.value
+      test: e.target.value
     })
   }
 
@@ -244,27 +244,31 @@ export default class EditResult extends Component {
                             <option value="Reading">Reading</option>
                             <option value="Projects">Projects</option>
 
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Social Studies">Social Studies</option>
+                            <option value="Basic Science & Technology">Basic Science & Technology</option>
+                            <option value="CRK">CRK</option>
+                            <option value="Home Economics">Home Economics</option>
+                            <option value="Agricultural Science">Agricultural Science</option>
+                            <option value="Handwriting">Handwriting</option>
+                            <option value="Foreign Languages (French)">Foreign Languages (French)</option>
+                            <option value="Creative Arts">Creative Arts</option>
+                            <option value="Computer/Info Tech">Computer/Info Tech</option>
+                            <option value="Physical & Health Science">Physical & Health Science</option>
+                            <option value="Vocational Aptitude">Vocational Aptitude</option>
+                            <option value="History">History</option>
+                            <option value="Civic Education/National Values">Civic Education/National Values</option>
+                            <option value="National Language (Igbo)">National Language (Igbo)</option>
+                            <option value="Non Verbal Reasoning">Non Verbal Reasoning</option>
+
+
 
                             <option value="Scribling">Scribling</option>
                             <option value="Bible Knowledge">Bible Knowledge</option>
                             <option value="Colouring">Colouring</option>
-                            <option value="Civic Education">Civic Education</option>
-                            <option value="Igbo">Igbo</option>
-                            <option value="Non Verbal Reasoning">Non Verbal Reasoning</option>
 
-                            <option value="English Language">English Language</option>
-                            <option value="Mathematics">Mathematics</option>
-                            <option value="Social Studies">Social Studies</option>
-                            <option value="Basic Science">Basic Science</option>
-                            <option value="CRK">CRK</option>
-                            <option value="Home Economics">Home Economics</option>
-                            <option value="Agric Science">Agric Science</option>
-                            <option value="French">French</option>
-                            <option value="Creative Arts">Creative Arts</option>
-                            <option value="Computer Science">Computer Science</option>
-                            <option value="P.H.E">P.H.E</option>
-                            <option value="Vocational Aptitude">Vocational Aptitude</option>
-                            <option value="History">History</option>
+
 
 
                           </select>
