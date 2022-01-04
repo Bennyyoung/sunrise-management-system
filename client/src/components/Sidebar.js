@@ -64,29 +64,7 @@ export default function Sidebar({ handleToggle, isOpen }) {
                                                                                 <span className="nav-text">Event Management</span>
                                                                         </Link>
                                                                         </li>
-                                                                        <li><a className="has-arrow" href="javascript:void()" aria-expanded="false">
-                                                                                <i className="la la-user"></i>
-                                                                                <span className="nav-text">Staff</span>
-                                                                        </a>
-                                                                                <ul aria-expanded="false">
-                                                                                        <li><Link to="/all-staffs">All Staffs</Link></li>
-                                                                                        <li><Link to="/add-staff">Add Staff</Link></li>
-                                                                                        {/* <li><Link to="/edit-staff">Edit Staff</Link></li> */}
-                                                                                        {/* <li><a href="professor-profile.html">Staff Profile</a></li> */}
-                                                                                </ul>
-                                                                        </li>
-                                                                        <li><Link className="has-arrow" to="/all-students" aria-expanded="false">
-                                                                                <i className="la la-users"></i>
-                                                                                <span className="nav-text">Students</span>
-                                                                        </Link>
-                                                                                <ul aria-expanded="false">
-                                                                                        <li><Link to="/all-students">All Students</Link></li>
-                                                                                        <li><Link to="/add-student">Add Students</Link></li>
-                                                                                        {/* <li><Link to="/edit-student">Edit Students</Link></li> */}
-                                                                                        {/* <li><Link to="about-student.html">About Students</Link></li> */}
-                                                                                </ul>
-                                                                        </li>
-                                                                        <li><Link className="has-arrow" to="/all-students" aria-expanded="false">
+                                                                        <li><Link className="has-arrow" to="/" aria-expanded="false">
                                                                                 <i className="la la-users"></i>
                                                                                 <span className="nav-text">Exams Grades</span>
                                                                         </Link>
@@ -108,7 +86,36 @@ export default function Sidebar({ handleToggle, isOpen }) {
                                                                                         {/* <li><Link to="about-student.html">About Students</Link></li> */}
                                                                                 </ul>
                                                                         </li>
-                                                                        <li><Link className="has-arrow" to="/all-students" aria-expanded="false">
+                                                                        <li><a className="has-arrow" href="javascript:void()" aria-expanded="false">
+                                                                                <i className="la la-user"></i>
+                                                                                <span className="nav-text">Staff</span>
+                                                                        </a>
+                                                                                <ul aria-expanded="false">
+                                                                                        <li><Link to="/all-staffs">All Staffs</Link></li>
+                                                                                        <li><Link to="/add-staff">Add Staff</Link></li>
+                                                                                        {/* <li><Link to="/edit-staff">Edit Staff</Link></li> */}
+                                                                                        {/* <li><a href="professor-profile.html">Staff Profile</a></li> */}
+                                                                                </ul>
+                                                                        </li>
+                                                                        <li><Link className="has-arrow" to="/" aria-expanded="false">
+                                                                                <i className="la la-users"></i>
+                                                                                <span className="nav-text">Students</span>
+                                                                        </Link>
+                                                                                <ul aria-expanded="false">
+                                                                                        <li><Link to="/all-students">All Students</Link></li>
+                                                                                        <li><Link to="/add-student">Add Students</Link></li>
+                                                                                        {/* <li><Link to="/edit-student">Edit Students</Link></li> */}
+                                                                                        {/* <li><Link to="about-student.html">About Students</Link></li> */}
+                                                                                </ul>
+                                                                        </li>
+
+
+
+
+
+
+
+                                                                        <li><Link className="has-arrow" to="/" aria-expanded="false">
                                                                                 <i className="la la-users"></i>
                                                                                 <span className="nav-text">Homework</span>
                                                                         </Link>
