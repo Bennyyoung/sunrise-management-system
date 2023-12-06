@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert'
 import AuthContext from '../../context/AuthContext';
 
@@ -9,7 +9,7 @@ export default function Login() {
  const [password, setPassword] = useState("");
 
  const { getLoggedIn } = useContext(AuthContext);
- const history = useHistory();
+ const navigate = useNavigate();
 
  async function login(e) {
   axios.defaults.headers.post['Access-Control-Allow-Methods'] = 'PATCH, DELETE, POST, GET, OPTIONS';
@@ -30,7 +30,7 @@ export default function Login() {
    await getLoggedIn()
    swal("Good job", "Login successful", "success")
    
-   history.push("/")
+   navigate("/")
   } catch (error) {
    console.log(error)
    swal("Sorry you are unauthorised", "Wrong email or password", "error")
