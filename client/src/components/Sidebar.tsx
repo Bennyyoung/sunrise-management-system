@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom'
 import AuthContext from "../context/AuthContext";
 import LogoutBtn from './auth/LogoutBtn';
 
+interface SidebarProps {
+   handleToggle: () => void
+   isOpen: boolean    
+}
 
-export default function Sidebar({ handleToggle, isOpen }) {
+export default function Sidebar({ handleToggle, isOpen }: SidebarProps) {
         // const [isOpen, setIsOpen] = useState(false)
 
 

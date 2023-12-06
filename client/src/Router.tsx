@@ -20,10 +20,10 @@ function Router() {
  return (
   <div>
    <BrowserRouter>
-    <Navbar handleToggle={handleToggle} isOpen={isOpen} />
+    <Navbar handleToggle={handleToggle} />
     <Sidebar handleToggle={handleToggle} isOpen={isOpen} />
     <Routes>
-     <Route exact path="/" element={<Home />} />
+     <Route path="/" element={<Home />} />
      {
       loggedIn === false && (
        <>

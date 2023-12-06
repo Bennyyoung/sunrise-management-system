@@ -4,9 +4,11 @@ import AuthContext from "../context/AuthContext";
 import { Link } from 'react-router-dom';
 import LogoutBtn from './auth/LogoutBtn';
 
+interface NavbarProps {
+  handleToggle: () => void
+}
 
-
-export default function Navbar({ handleToggle }) {
+export default function Navbar({ handleToggle }: NavbarProps) {
   const { loggedIn } = useContext(AuthContext);
 
   return (
