@@ -3,20 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fullcalendar/daygrid": "^5.5.0",
-    "@fullcalendar/react": "^5.5.0",
-    "@mui/icons-material": "^5.2.5",
-    "axios": "^0.21.1",
-    "cra-template": "1.1.1",
+    "@fullcalendar/daygrid": "^6.1.10",
+    "@fullcalendar/react": "^6.1.10",
+    "@mui/icons-material": "^5.14.19",
+    "axios": "^1.6.2",
+    "cra-template": "1.2.0",
     "downloadjs": "^1.4.7",
-    "mdb-react-ui-kit": "^2.2.0",
-    "react": "^17.0.1",
-    "react-datepicker": "^3.6.0",
-    "react-dom": "^17.0.1",
-    "react-dropzone": "^11.3.1",
+    "mdb-react-ui-kit": "^7.0.0",
+    "react": "^18.2.0",
+    "react-datepicker": "^4.24.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-json-view": "^1.21.3",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "5.0.1",
     "sweetalert": "^2.1.2"
   },
   "scripts": {
@@ -43,5 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://127.0.0.1:5000"
 }

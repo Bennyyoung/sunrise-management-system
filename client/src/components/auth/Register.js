@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert'
 import AuthContext from '../../context/AuthContext';
 
@@ -10,7 +10,7 @@ export default function Register() {
  const [confirmPassword, setConfirmPassword] = useState("");
 
  const { getLoggedIn } = useContext(AuthContext);
- const history = useHistory()
+ const navigate = useNavigate()
 
  async function register(e) {
   axios.defaults.headers.post['Access-Control-Allow-Methods'] = 'PATCH, DELETE, POST, GET, OPTIONS';

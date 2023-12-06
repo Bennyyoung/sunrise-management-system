@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import TeachersSidebar from '../ForTeachers/TeachersSidebar'
 import TeachersAddNewResult from './TeachersAddNewResult'
 import TeachersEventManagement from './TeachersEventManagement'
@@ -13,7 +13,7 @@ export default class ForTeachers extends Component {
    <div>
     <TeachersSidebar />
     {/* <TeachersHome /> */}
-    <Switch>
+    <Routes>
      <Route path="/teachers/home" component={TeachersHome} />
      <Route path="/teachers/event-management" component={TeachersEventManagement}/>
      <Route path="/teachers/all-results" component={TeachersSeeAllResult} />
@@ -21,7 +21,7 @@ export default class ForTeachers extends Component {
      <Route path="/teachers/all-students" component={TeachersSeeAllStudent} />
 
 
-    </Switch>
+    </Routes>
    </div>
   )
  }
