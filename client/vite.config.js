@@ -17,4 +17,18 @@ export default defineConfig({
       exclude: [],
     }
   },
+  server: {
+    base: 'http://localhost:3000/',
+    host: 'localhost',
+    port: 3000,
+    open: true
+  },
+  proxy: {
+    '/': {
+         target: 'http://localhost:5000',
+         changeOrigin: true,
+         secure: false,      
+         ws: true,
+     }
+}
 })

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import AuthContext from '../../context/AuthContext';
 
+const backendUrl = import.meta.env.VITE_REACT_APP_BACK_END
+
 export default function Login(): JSX.Element {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -31,7 +33,7 @@ export default function Login(): JSX.Element {
         password,
       };
 
-      await axios.post('/auth/login', loginData);
+      await axios.post(`${backendUrl}/auth/login`, loginData);
 
       await getLoggedIn();
       swal('Good job', 'Login successful', 'success');

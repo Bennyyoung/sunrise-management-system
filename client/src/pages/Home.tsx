@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+// import.meta.env
 
 const Home: React.FC = () => {
   const [students, setStudents] = useState<number>(0);
@@ -15,7 +16,7 @@ const Home: React.FC = () => {
       setStaff(response.data.length);
     });
 
-    console.log(`BACKEND_URL: ${process.env.REACT_APP_BACK_END}`);
+    console.log(`BACKEND_URL: ${import.meta.env.VITE_REACT_APP_BACK_END}`);
   }, []);
 
   return (
