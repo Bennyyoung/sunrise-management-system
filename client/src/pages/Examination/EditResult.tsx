@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import swal from 'sweetalert'
 
-interface ResultFormProps {
-  match: {
-    params: {
-      id: string;
-    };
-  };
-}
 
 interface Student {
   firstname: string;
@@ -19,8 +12,9 @@ interface Student {
   // Add any other properties if available
 }
 
-const ResultForm: React.FC<ResultFormProps> = ({ match }) => {
+const EditResult: React.FC = () => {
   const navigate = useNavigate()
+  const params = useParams()
   const [state, setState] = useState({
     studentfullname: '',
     subject: '',
@@ -35,7 +29,7 @@ const ResultForm: React.FC<ResultFormProps> = ({ match }) => {
   });
 
   useEffect(() => {
-    axios.get(`/results/${match.params.id}`)
+    axios.get(`/results/${params.id}`)
       .then(response => {
         const data = response.data;
         setState({
@@ -67,7 +61,7 @@ const ResultForm: React.FC<ResultFormProps> = ({ match }) => {
           console.log('Response data length:' + response.data.length);
         }
       });
-  }, [match.params.id]); // Added match.params.id as dependency to re-fetch data on id change
+  }, [params.id]); // Added match.params.id as dependency to re-fetch data on id change
 
   const onChangeStudentFullName = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setState({ ...state, studentfullname: e.target.value });
@@ -135,7 +129,7 @@ const ResultForm: React.FC<ResultFormProps> = ({ match }) => {
       responsible: state.responsible,
     };
 
-    axios.post(`/results/update/${match.params.id}`, result)
+    axios.post(`/results/update/${params.id}`, result)
       .then(res => {
         console.log(res.data);
         swal('Good job', 'Student Result successfully Updated', 'success');
@@ -335,3 +329,5 @@ const ResultForm: React.FC<ResultFormProps> = ({ match }) => {
     </div>
   )
 }
+
+export default EditResult

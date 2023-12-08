@@ -57,10 +57,10 @@ const AddStaff: React.FC = () => {
     };
     const onChangeDateOfBirth = (dateofbirth: Date) => {
         setState((prevState) => ({
-          ...prevState,
-          dateofbirth: dateofbirth,
+            ...prevState,
+            dateofbirth: dateofbirth,
         }));
-      };
+    };
     const onChangeEducation = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, education: e.target.value });
     };

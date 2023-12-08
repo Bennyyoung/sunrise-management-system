@@ -5,7 +5,7 @@ export { default as  AllStaffs} from './Staff/AllStaffs'
 export { default as AddStaff } from './Staff/AddStaff'
 export { default as EditStaff } from './Staff/EditStaff'
 
-export { default as AllStudents } from './Student/AllStudents'
+export { default as AllStudents } from './Student/AllStudent'
 export { default as AddStudent } from './Student/AddStudent'
 export { default as EditStudent } from './Student/EditStudent'
 

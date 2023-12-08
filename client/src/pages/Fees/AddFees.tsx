@@ -162,5 +162,6 @@ const AddFees: React.FC = () => {
    </div>
   </div>
  )
-
 }
+
+export default AddFees

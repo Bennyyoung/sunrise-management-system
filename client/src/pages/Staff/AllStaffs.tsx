@@ -38,7 +38,7 @@ const Staff: React.FC<{ staff: Staff; deleteStaff: (id: string) => void }> = ({ 
 )
 
 
-const AllStaffs: React.FC<{ history: any }> = ({ history }) => {
+const AllStaffs: React.FC = () => {
       const [staffs, setStaffs] = useState<Staff[]>([]);
     
       useEffect(() => {
