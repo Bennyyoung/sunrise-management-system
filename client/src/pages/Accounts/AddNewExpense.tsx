@@ -1,148 +1,166 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { backendUrl } from '../../http/env';
+import PageHeaders from '../../components/Headers/pages/PageHeaders';
+import Select from '../../components/modules/Select/Select';
+import expenseTypeArray from '../../data/expenseTypeArray';
+import Input from '../../components/modules/Input/Input';
+import expenseStatusArray from '../../data/expenseStatus';
 
 const AddNewExpense = () => {
-    const [expense, setExpense] = useState({
-        name: '',
-        expensetype: '',
-        amount: '',
-        phone: '',
-        email: '',
-        status: '',
-        date: ''
-      });
-    
-      const {
-        name,
-        expensetype,
-        amount,
-        phone,
-        email,
-        status,
-        date
-      } = expense;
-    
-      const onChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        setExpense({ ...expense, [e.target.name]: e.target.value });
-      };
-    
-      const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    
-        axios.post('/expenses/add', expense)
-          .then(res => console.log(res.data))
-          .catch(error => {
-            console.log(error);
-          });
-    
-        setExpense({
-          name: '',
-          expensetype: '',
-          amount: '',
-          phone: '',
-          email: '',
-          status: '',
-          date: ''
-        });
-      };
+  const [expense, setExpense] = useState({
+    name: '',
+    expensetype: '',
+    amount: '',
+    phone: '',
+    email: '',
+    status: '',
+    date: ''
+  });
 
-      return (
-        <div className="content-body">
-         <div className="container-fluid">
-     
-          <div className="row page-titles mx-0">
-           <div className="col-sm-6 p-md-0">
-            <div className="welcome-text">
-             <h4>Add New Expense</h4>
-            </div>
-           </div>
-           <div className="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-            <ol className="breadcrumb">
-             <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-             <li className="breadcrumb-item active"><Link to="/all-new-expense">Expense</Link></li>
-             <li className="breadcrumb-item active"><Link to="/add-new-expense">Add New Expense</Link></li>
-            </ol>
-           </div>
-          </div>
-     
-          <div className="row">
-           <div className="col-xl-12 col-xxl-12 col-sm-12">
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setExpense(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  };
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(`${backendUrl}/expenses/add`, expense)
+      console.log(response.data)
+    } catch (error) {
+      console.log(error);
+    }
+
+    setExpense({
+      name: '',
+      expensetype: '',
+      amount: '',
+      phone: '',
+      email: '',
+      status: '',
+      date: ''
+    });
+  };
+
+  return (
+    <div className="content-body">
+      <div className="container-fluid">
+
+        <PageHeaders
+          heading={"Add New Expense"}
+          link1Href={"/"}
+          link1Label={"Home"}
+          link2Href={"/all-new-expense"}
+          link2Label={"Expense"}
+          link3Href={"/add-new-expense"}
+          link3Label={"Add New Expense"}
+        />
+
+        <div className="row">
+          <div className="col-xl-12 col-xxl-12 col-sm-12">
             <div className="card">
-             <div className="card-header">
-              <h5 className="card-title">Basic Info</h5>
-             </div>
-             <div className="card-body">
-              <form onSubmit={onSubmit}>
-               <div className="row">
-                <div className="col-lg-6 col-md-6 col-sm-12">
-                 <div className="form-group">
-                  <label className="form-label">Name</label>
-                  <input type="text" className="form-control" value={name} onChange={(e) => onChange(e)} name="name" required />
-                 </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-12">
-                 <div className="form-group">
-                  <label className="form-label">Expense Type</label>
-                  <select className="form-control" value={expensetype} onChange={(e) => onChange(e)} required>
-                   <option value="Class">Please Select</option>
-                   <option value="html">Salary</option>
-                   <option value="css">Transport</option>
-                   <option value="javascript">Maintenance</option>
-                   <option value="angular">Purchase</option>
-                   <option value="angular">Utilities</option>
-                  </select>
-                 </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-12">
-                 <div className="form-group">
-                  <label className="form-label">Amount</label>
-                  <input type="text" className="form-control" value={amount} onChange={(e) => onChange(e)} required />
-                 </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-12">
-                 <div className="form-group">
-                  <label className="form-label">Phone</label>
-                  <input type="Number" className="form-control" value={phone} onChange={(e) => onChange(e)} required />
-                 </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-12">
-                 <div className="form-group">
-                  <label className="form-label">E-Mail Address</label>
-                  <input type="text" className="form-control" value={email} onChange={(e) => onChange(e)} required />
-                 </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-12">
-                 <div className="form-group">
-                  <label className="form-label">Status</label>
-                  <select className="form-control" value={status} onChange={(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => onChange(e)} required>
-                   <option value="Please Select">Please Select</option>
-                   <option value="paid">Paid</option>
-                   <option value="due">Due</option>
-                   <option value="others">Others</option>
-                  </select>
-                 </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-12">
-                 <div className="form-group">
-                  <label className="form-label">Date</label>
-                  <input name="datepicker" className="datepicker-default form-control" id="datepicker" value={date} onChange={onChange} required />
-                 </div>
-                </div>
-                <div className="col-lg-12 col-md-12 col-sm-12">
-                 <button type="submit" className="btn btn-primary">Submit</button>
-                 <button type="submit" className="btn btn-light">Cancel</button>
-                </div>
-               </div>
-              </form>
-             </div>
+              <div className="card-header">
+                <h5 className="card-title">Basic Info</h5>
+              </div>
+              <div className="card-body">
+                <form onSubmit={(e) => onSubmit(e)}>
+                  <div className="row">
+
+                    <Input
+                      label='Name'
+                      type={"text"}
+                      placeholder={"Name"}
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      name="name"
+                      value={expense.name}
+                      required
+                    />
+
+                    <Select
+                      label="Expense Type"
+                      name="expenseType"
+                      className="form-control"
+                      value={expense.expensetype}
+                      options={expenseTypeArray}
+                      onChange={(e) => handleChange(e)}
+                      required
+                    />
+
+                    <Input
+                      label='Amount'
+                      type={"text"}
+                      placeholder={"Amount"}
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      name="amount"
+                      value={expense.amount}
+                      required
+                    />
+
+                    <Input
+                      label='Phone'
+                      type={"text"}
+                      placeholder={"Phone"}
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      name="phone"
+                      value={expense.phone}
+                      required
+                    />
+
+                    <Input
+                      label='Email'
+                      type={"email"}
+                      placeholder={"Email"}
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      name="email"
+                      value={expense.email}
+                      required
+                    />
+
+                    <Select
+                      label="Status"
+                      name="status"
+                      className="form-control"
+                      value={expense.status}
+                      options={expenseStatusArray}
+                      onChange={(e) => handleChange(e)}
+                      required
+                    />
+
+                    <Input
+                      label='Date'
+                      type={"date"}
+                      placeholder={"Email"}
+                      className="datepicker-default form-control"
+                      onChange={(e) => handleChange(e)}
+                      name="datepicker"
+                      value={expense.date}
+                      required
+                    />
+
+                    <div className="col-lg-12 col-md-12 col-sm-12">
+                      <button type="submit" className="btn btn-primary">Submit</button>
+                      <button type="submit" className="btn btn-light">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-           </div>
           </div>
-     
-         </div>
         </div>
-       )
+
+      </div>
+    </div>
+  )
 }
 
 export default AddNewExpense 

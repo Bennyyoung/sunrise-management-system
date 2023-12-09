@@ -1,7 +1,9 @@
 import axios from 'axios';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { backendUrl } from '../../http/env';
+
 
 export default function LogoutBtn(): JSX.Element {
   const { getLoggedIn } = useContext(AuthContext);
@@ -9,10 +11,16 @@ export default function LogoutBtn(): JSX.Element {
   const navigate = useNavigate();
 
   const logout = async () => {
-    await axios.get('/auth/logout');
 
-    await getLoggedIn();
-    navigate('/');
+    try {
+      await axios.get(`${backendUrl}/auth/logout`);
+
+      await getLoggedIn();
+      navigate('/');
+
+    } catch (error) {
+      console.error(error)
+    }
   };
 
   return (

@@ -1,25 +1,28 @@
 import axios from 'axios';
-import React, { useContext, useState, ChangeEvent, FormEvent } from 'react';
+import { useContext, useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import AuthContext from '../../context/AuthContext';
-
-const backendUrl = import.meta.env.VITE_REACT_APP_BACK_END
+import { backendUrl } from '../../http/env';
+import Input from '../modules/Input/Input';
+import AuthHeaders from '../Headers/auth/AuthHeaders';
 
 export default function Login(): JSX.Element {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: ""
+  })
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setLoginData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
 
   const { getLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
 
   const login = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,11 +30,6 @@ export default function Login(): JSX.Element {
     try {
       axios.defaults.headers.post['Access-Control-Allow-Methods'] =
         'PATCH, DELETE, POST, GET, OPTIONS';
-
-      const loginData = {
-        email,
-        password,
-      };
 
       await axios.post(`${backendUrl}/auth/login`, loginData);
 
@@ -48,13 +46,9 @@ export default function Login(): JSX.Element {
   return (
     <div className="content-body">
       <div className="container-fluid">
-        <div className="row page-titles mx-0">
-          <div className="col-sm-6 p-md-0">
-            <div className="welcome-text">
-              <h4>Login</h4>
-            </div>
-          </div>
-        </div>
+        <AuthHeaders>
+          <h4>Login</h4>
+        </AuthHeaders>
 
         <div className="row">
           <div className="col-xl-12 col-xxl-12 col-sm-12">
@@ -65,32 +59,26 @@ export default function Login(): JSX.Element {
               <div className="card-body">
                 <form onSubmit={(e) => login(e)}>
                   <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-12">
-                      <div className="form-group">
-                        <label className="form-label">Email</label>
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          className="form-control"
-                          onChange={(e) => handleEmailChange(e)}
-                          value={email}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12">
-                      <div className="form-group">
-                        <label className="form-label">Password</label>
-                        <input
-                          type="password"
-                          placeholder="Password"
-                          className="form-control"
-                          onChange={(e) => handlePasswordChange(e)}
-                          value={password}
-                          required
-                        />
-                      </div>
-                    </div>
+                    <Input
+                      label='Email'
+                      type={"email"}
+                      placeholder={"Email"}
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      name="email"
+                      value={loginData.email}
+                      required
+                    />
+                    <Input
+                      label='Password'
+                      type={"password"}
+                      placeholder={"Password"}
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      name="password"
+                      value={loginData.password}
+                      required
+                    />
                     <div className="col-lg-12 col-md-12 col-sm-12">
                       <button type="submit" className="btn btn-primary">
                         Login
