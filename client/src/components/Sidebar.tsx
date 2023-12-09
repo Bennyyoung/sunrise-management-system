@@ -84,7 +84,7 @@ export default function Sidebar({ handleToggle, isOpen }: SidebarProps) {
                                                                                         <li><Link to="/nursery-1-result">Nursery 1 Results</Link></li>
                                                                                         <li><Link to="/nursery-2-result">Nursery 2 Results</Link></li>
                                                                                         <li><Link to="/nursery-3-result">Nursery 3 Results</Link></li>
-                                                                                        <li><Link to="/creche-result">Creche Results</Link></li>
+                                                                                        <li><Link to="/pre-nursery-result">Pre-nursery Results</Link></li>
 
                                                                                         {/* <li><Link to="/edit-grade">Edit Grade List</Link></li> */}
                                                                                         {/* <li><Link to="about-student.html">About Students</Link></li> */}

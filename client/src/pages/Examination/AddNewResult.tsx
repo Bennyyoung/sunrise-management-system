@@ -73,7 +73,6 @@ const AddNewResult = () => {
   }
 
   useEffect(() => {
-
     fetchStudents()
   }, []);
 
@@ -148,7 +147,7 @@ const AddNewResult = () => {
                         </select>
                       </div>
                     </div>
-                    
+
                     <Select
                       name={newResult.studentclass}
                       label="Class"
