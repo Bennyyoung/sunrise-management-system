@@ -2,10 +2,10 @@ import axios from 'axios';
 import React, { useContext, useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import AuthContext from '../../context/AuthContext';
-import { backendUrl } from '../../http/env';
+import AuthContext from '../../Context/AuthContext';
+import { backendUrl } from '../../Http/env';
 import AuthHeaders from '../Headers/auth/AuthHeaders';
-import Input from '../modules/Input/Input';
+import Input from '../Modules/Input/Input';
 
 export default function Register(): JSX.Element {
 

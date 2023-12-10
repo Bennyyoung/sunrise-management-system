@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import AuthContext from "../context/AuthContext";
-import LogoutBtn from './auth/LogoutBtn';
+import AuthContext from "../Context/AuthContext";
+import LogoutBtn from './Auth/LogoutBtn';
 
 interface SidebarProps {
    handleToggle: () => void

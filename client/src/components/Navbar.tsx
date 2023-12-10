@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import pic1 from '../images/profile/education/pic1.jpg'
-import AuthContext from "../context/AuthContext";
+import AuthContext from "../Context/AuthContext";
 import { Link } from 'react-router-dom';
-import LogoutBtn from './auth/LogoutBtn';
+import LogoutBtn from './Auth/LogoutBtn';
 
 interface NavbarProps {
   handleToggle: () => void

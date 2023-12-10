@@ -2,8 +2,8 @@ import { useState, useEffect, ChangeEvent, FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert'
-import { backendUrl } from '../../http/env'
-import primarySchoolSubjectsArray from '../../data/primarySchoolSubject'
+import { backendUrl } from '../../Http/env'
+import primarySchoolSubjectsArray from '../../Data/primarySchoolSubject'
 
 const UploadAssignment = () => {
 

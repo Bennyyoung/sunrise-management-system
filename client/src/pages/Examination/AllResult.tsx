@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert'
-import { backendUrl } from '../../http/env';
-import { print } from '../../utils/utils';
+import { backendUrl } from '../../Http/env';
+import { print } from '../../Utils/utils';
 
 interface ResultProps {
   result: {

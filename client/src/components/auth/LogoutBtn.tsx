@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useContext } from 'react';
-import AuthContext from '../../context/AuthContext';
+import AuthContext from '../../Context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { backendUrl } from '../../http/env';
+import { backendUrl } from '../../Http/env';
 
 
 export default function LogoutBtn(): JSX.Element {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useLocation } from 'react-router-dom'
-import { backendUrl } from '../../http/env';
+import { backendUrl } from '../../Http/env';
 
 interface IClassResult {
     result: {
