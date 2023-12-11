@@ -4,7 +4,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import connectDB from './config/db';
+import connectDB from "./config/db";
 
 dotenv.config();
 
@@ -12,7 +12,7 @@ const app: Application = express();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(bodyParser.json({ limit: '30mb', extended: true }));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
 app.use(
