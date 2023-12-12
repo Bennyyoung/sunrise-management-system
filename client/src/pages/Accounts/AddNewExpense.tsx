@@ -2,10 +2,10 @@ import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { backendUrl } from '../../Http/env';
-import PageHeaders from '../../components/Headers/pages/PageHeaders';
-import Select from '../../components/Modules/Select/Select';
+import PageHeaders from '../../Components/Headers/pages/PageHeaders';
+import Select from '../../Components/Modules/Select/Select';
 import expenseTypeArray from '../../Data/expenseTypeArray';
-import Input from '../../components/Modules/Input/Input';
+import Input from '../../Components/Modules/Input/Input';
 import expenseStatusArray from '../../Data/expenseStatus';
 
 const AddNewExpense = () => {

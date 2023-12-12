@@ -5,10 +5,10 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import swal from 'sweetalert'
 import { backendUrl } from '../../Http/env'
-import Select from '../../components/Modules/Select/Select'
+import Select from '../../Components/Modules/Select/Select'
 import classArray from '../../Data/class'
 import subjectArray from '../../Data/subject'
-import PageHeaders from '../../components/Headers/pages/PageHeaders'
+import PageHeaders from '../../Components/Headers/pages/PageHeaders'
 
 interface Result {
   studentfullname: string;

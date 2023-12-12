@@ -5,7 +5,7 @@ import { BrowserRouter, HashRouter,Routes, Route } from "react-router-dom"
 
 // import { Home, EventManagement, AllStaffs, AddStaff, EditStaff, AllStudents, AddStudent, EditStudent, AddNewResult, AllResult, AddNewExpense, ForTeachers, ForParents, EditResult, AllExpenses, AddFees, UploadAssignment, ViewByClass, Creche } from './pages'
 
-import { Navbar, Sidebar, Login, Register } from './components'
+import { Navbar, Sidebar, Login, Register } from './Components'
 import IndividualClassResult from './Pages/Examination/IndividualClassResult'
 import AddNewExpense from './Pages/Accounts/AddNewExpense'
 import AllExpenses from './Pages/Accounts/AllExpenses'

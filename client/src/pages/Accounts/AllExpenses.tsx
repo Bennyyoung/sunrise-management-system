@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import PageHeaders from '../../components/Headers/pages/PageHeaders';
+import PageHeaders from '../../Components/Headers/pages/PageHeaders';
 import { backendUrl } from '../../Http/env';
 
 interface ExpenseProps {
