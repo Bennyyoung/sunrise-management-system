@@ -1,12 +1,12 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { backendUrl } from '../../http/env';
-import PageHeaders from '../../components/Headers/pages/PageHeaders';
-import Select from '../../components/modules/Select/Select';
-import expenseTypeArray from '../../data/expenseTypeArray';
-import Input from '../../components/modules/Input/Input';
-import expenseStatusArray from '../../data/expenseStatus';
+import { backendUrl } from '../../Http/env';
+import PageHeaders from '../../Components/Headers/pages/PageHeaders';
+import Select from '../../Components/Modules/Select/Select';
+import expenseTypeArray from '../../Data/expenseTypeArray';
+import Input from '../../Components/Modules/Input/Input';
+import expenseStatusArray from '../../Data/expenseStatus';
 
 const AddNewExpense = () => {
   const [expense, setExpense] = useState({

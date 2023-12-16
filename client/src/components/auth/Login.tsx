@@ -2,9 +2,9 @@ import axios from 'axios';
 import { useContext, useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import AuthContext from '../../context/AuthContext';
-import { backendUrl } from '../../http/env';
-import Input from '../modules/Input/Input';
+import AuthContext from '../../Context/AuthContext';
+import { backendUrl } from '../../Http/env';
+import Input from '../Modules/Input/Input';
 import AuthHeaders from '../Headers/auth/AuthHeaders';
 
 export default function Login(): JSX.Element {

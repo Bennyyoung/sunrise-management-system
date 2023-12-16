@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullcalendar/core": "^6.1.10",
     "@fullcalendar/daygrid": "^6.1.10",
     "@fullcalendar/react": "^6.1.10",
     "@mui/icons-material": "^5.14.19",
@@ -18,10 +19,10 @@
     "react-json-view": "^1.21.3",
     "react-router-dom": "^6.20.1",
     "sweetalert": "^2.1.2",
-    "vite": "^5.0.6",
+    "vite": "^5.0.8",
     "vite-aliases": "^0.11.3",
     "vite-plugin-svgr": "^4.2.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.2"
   },
   "scripts": {
     "start": "vite",
@@ -50,11 +51,11 @@
   },
   "proxy": "http://localhost:5000",
   "devDependencies": {
-    "@types/node": "^20.10.3",
-    "@types/react": "^18.2.42",
-    "@types/react-datepicker": "^4.19.3",
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.43",
+    "@types/react-datepicker": "^4.19.4",
     "@types/react-dom": "^18.2.17",
-    "vitest": "^1.0.2"
+    "vitest": "^1.0.4"
   },
   "type": "module"
 }
