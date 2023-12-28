@@ -1,17 +1,23 @@
+// auth/auth.module.ts
+
 import { Module } from '@nestjs/common';
-import { AuthService } from './services/auth.service';
-import { AuthController } from './controllers/auth.controller';
-import { JwtModule } from '@nestjs/jwt';
+import { MongooseModule } from '@nestjs/mongoose';
+import { AuthController } from './auth.controller';
+import { AuthService } from './auth.service';
+import { SuperAdminGuard } from './super-admin.guard';
+import { UserModel } from '../auth/users/user.model';
+import { UserSchema } from '../auth/users/user.schema';
 
 @Module({
   imports: [
-    JwtModule.register({
-      secret: 'your_secret_key', // Change this to a more secure secret key
-      signOptions: { expiresIn: '1d' }, // Token expiration time
-    }),
-    // Other necessary imports (e.g., database module)
+    MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    UserModel,
+    SuperAdminGuard,
+  ],
+  exports: [AuthService], // Optionally export the AuthService if needed in other modules
 })
 export class AuthModule {}
