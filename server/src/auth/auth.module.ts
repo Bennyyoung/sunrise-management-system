@@ -4,6 +4,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
+import {AdminService} from "./admin/admin.service"
 import { SuperAdminGuard } from './super-admin.guard';
 import { UserModel } from '../auth/users/user.model';
 import { UserSchema } from '../auth/users/user.schema';
@@ -15,6 +16,7 @@ import { UserSchema } from '../auth/users/user.schema';
   controllers: [AuthController],
   providers: [
     AuthService,
+    AdminService, // Add AdminService
     UserModel,
     SuperAdminGuard,
   ],

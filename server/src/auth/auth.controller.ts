@@ -1,32 +1,29 @@
-// auth/auth.controller.ts
+import { Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { User, UserDocument } from './user.schema';
 
-import { Controller, Post, Body, UseGuards } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { SuperAdminGuard } from './super-admin.guard'; // Import the SuperAdminGuard
+@Injectable()
+export class AdminService {
+  constructor(private readonly userModel: Model<UserDocument>) {}
 
-@Controller('auth')
-export class AuthController {
-  constructor(private readonly authService: AuthService) {}
-
-  @Post('register')
-  @UseGuards(SuperAdminGuard) // Apply the SuperAdminGuard to the registration route
-  async register(@Body('email') email: string, @Body('password') password: string) {
-    try {
-      const user = await this.authService.register(email, password);
-      return { message: 'Registration successful', user };
-    } catch (error) {
-      return { message: 'Registration failed', error: error.message };
-    }
+  async createAdmin(adminDto: AdminDto): Promise<User> {
+    // Implementation for creating an admin...
   }
 
-  @Post('login')
-  @UseGuards(SuperAdminGuard) // Apply the SuperAdminGuard to the login route
-  async login(@Body('email') email: string, @Body('password') password: string) {
-    try {
-      const user = await this.authService.login(email, password);
-      return { message: 'Login successful', user };
-    } catch (error) {
-      return { message: 'Login failed', error: error.message };
-    }
+  async getAllAdmins(): Promise<User[]> {
+    // Implementation to retrieve all admins
+    return await this.userModel.find({ role: 'admin' }).exec();
+  }
+
+  async getAdminById(id: string): Promise<User> {
+    // Implementation to retrieve an admin by ID
+  }
+
+  async updateAdmin(id: string, adminDto: AdminDto): Promise<User> {
+    // Implementation to update an admin by ID
+  }
+
+  async deleteAdmin(id: string): Promise<User> {
+    // Implementation to delete an admin by ID
   }
 }

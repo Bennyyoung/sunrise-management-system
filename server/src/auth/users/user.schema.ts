@@ -1,16 +1,14 @@
-// users/user.schema.ts
+import { Document, Schema } from 'mongoose';
 
-import * as mongoose from 'mongoose';
-
-export const UserSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  role: { type: String, enum: ['user', 'superadmin'], default: 'user' }, // Assuming a 'role' field
-});
-
-export interface User extends mongoose.Document {
+export interface User {
+  // Define your User interface/schema fields
   email: string;
   password: string;
-  role: string;
   // Other fields...
 }
+
+export type UserDocument = User & Document; // Define the UserDocument type
+
+export const UserSchema = new Schema<User>({
+  // Define your schema structure here
+});
