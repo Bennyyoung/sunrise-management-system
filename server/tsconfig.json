@@ -1,5 +1,40 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "auth": [
+        "./src/auth/*"
+      ],
+      "common": [
+        "./src/common"
+      ],
+      "parents": [
+        "./src/parents"
+      ],
+      "permission": [
+        "./src/permissions"
+      ],
+      "roles": [
+        "./src/roles"
+      ],
+      "routes": [
+        "./src/routes"
+      ],
+      "schools": [
+        "./src/schools"
+      ],
+      "students": [
+        "./src/students"
+      ],
+      "teachers": [
+        "./src/teachers"
+      ],
+      "users": [
+        "./src/users"
+      ]
+    },
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -9,7 +44,7 @@
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    // "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,

@@ -1,8 +1,8 @@
 import { Controller, Post, Body, UseGuards, Put, Param, Get } from '@nestjs/common';
 import { ParentsService } from './parents.service';
 import { CreateParentDto } from './dto/create-parent.dto';
-import { UpdateParentDto } from './dto/update-parent.dto';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { UpdateParentDto } from '@/parents/dto/update-parent.dto';
+import { JwtAuthGuard } from '@/auth/guard/jwt-auth.guard';
 
 @Controller('parents')
 @UseGuards(JwtAuthGuard)

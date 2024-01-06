@@ -1,11 +1,12 @@
 import { Controller, Post, Request, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LocalAuthGuard } from './local-auth.guard';
-import { JwtAuthGuard } from './jwt-auth.guard';
-import { RolesGuard } from './roles.guard';
-import { PermissionsGuard } from './permissions.guard';
-import { Roles } from '../roles/roles.decorator';
-import { Permissions } from '../permissions/permissions.decorator';
+import { LocalAuthGuard } from '@/auth/guard/local-auth.guard';
+import { JwtAuthGuard } from '@/auth/guard/jwt-auth.guard';
+import { RolesGuard } from '@/auth/guard/roles.guard';
+import { PermissionsGuard } from '@/auth/guard/permissions.guard';
+import { Roles } from '@/common/decorators/roles.decorator';
+// no permissions decorator
+import { Permissions } from '@/permissions/permissions.decorator';
 
 @Controller('auth')
 export class AuthController {
