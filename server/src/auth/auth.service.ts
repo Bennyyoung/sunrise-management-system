@@ -1,26 +1,43 @@
-// auth.service.ts
-
 import { Injectable } from '@nestjs/common';
-import { UserModel } from '../auth/users/user.model';
+import { UsersService } from '../users/users.service';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly userModel: UserModel) {}
+  constructor(private readonly usersService: UsersService, private readonly jwtService: JwtService) {}
 
-  async register(email: string, password: string): Promise<any> {
-    const existingUser = await this.userModel.findByEmail(email);
-    if (existingUser) {
-      return { message: 'User already exists' };
+  async validateUser(username: string, password: string): Promise<any> {
+    const user = await this.usersService.findByUsername(username);
+
+    if (user && user.password === password) {
+      const { password, ...result } = user;
+      return result;
     }
-    const user = await this.userModel.createUser(email, password);
-    return user;
+
+    return null;
   }
 
-  async login(email: string, password: string): Promise<any> {
-    const user = await this.userModel.findByEmail(email);
-    if (!user || user.password !== password) {
-      return { message: 'Invalid credentials' };
-    }
-    return user;
+  async validateUserById(userId: string): Promise<any> {
+    return this.usersService.findById(userId);
+  }
+
+  async register(user): Promise<any> {
+    const createdUser = await this.usersService.registerUser(user);
+    const { password, ...result } = createdUser;
+
+    return result;
+  }
+
+  async login(user): Promise<any> {
+    const payload = {
+      sub: user.userId,
+      username: user.username,
+      roles: user.roles,
+      permissions: user.permissions,
+    };
+
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
   }
 }

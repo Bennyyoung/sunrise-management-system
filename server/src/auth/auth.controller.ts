@@ -1,29 +1,27 @@
-import { Injectable } from '@nestjs/common';
-import { Model } from 'mongoose';
-import { User, UserDocument } from './user.schema';
+import { Controller, Post, Request, UseGuards } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { LocalAuthGuard } from './local-auth.guard';
+import { JwtAuthGuard } from './jwt-auth.guard';
+import { RolesGuard } from './roles.guard';
+import { PermissionsGuard } from './permissions.guard';
+import { Roles } from '../roles/roles.decorator';
+import { Permissions } from '../permissions/permissions.decorator';
 
-@Injectable()
-export class AdminService {
-  constructor(private readonly userModel: Model<UserDocument>) {}
+@Controller('auth')
+export class AuthController {
+  constructor(private readonly authService: AuthService) {}
 
-  async createAdmin(adminDto: AdminDto): Promise<User> {
-    // Implementation for creating an admin...
+  @UseGuards(LocalAuthGuard)
+  @Post('login')
+  async login(@Request() req: any): Promise<any> {
+    return this.authService.login(req.user);
   }
 
-  async getAllAdmins(): Promise<User[]> {
-    // Implementation to retrieve all admins
-    return await this.userModel.find({ role: 'admin' }).exec();
-  }
-
-  async getAdminById(id: string): Promise<User> {
-    // Implementation to retrieve an admin by ID
-  }
-
-  async updateAdmin(id: string, adminDto: AdminDto): Promise<User> {
-    // Implementation to update an admin by ID
-  }
-
-  async deleteAdmin(id: string): Promise<User> {
-    // Implementation to delete an admin by ID
+  @UseGuards(JwtAuthGuard, RolesGuard, PermissionsGuard)
+  @Roles('admin')
+  @Permissions('manage_users')
+  @Post('protected')
+  getProtectedData() {
+    return { message: 'This data is protected.' };
   }
 }

@@ -1,25 +1,23 @@
-// auth/auth.module.ts
-
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import {AdminService} from "./admin/admin.service"
-import { SuperAdminGuard } from './super-admin.guard';
-import { UserModel } from '../auth/users/user.model';
-import { UserSchema } from '../auth/users/user.schema';
+import { AuthController } from './auth.controller';
+import { UsersModule } from '../users/users.module';
+import { LocalStrategy } from './local.strategy';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './jwt.strategy';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+    UsersModule,
+    PassportModule,
+    JwtModule.register({
+      secret: 'your-secret-key', // Replace with your actual secret key
+      signOptions: { expiresIn: '1h' },
+    }),
   ],
   controllers: [AuthController],
-  providers: [
-    AuthService,
-    AdminService, // Add AdminService
-    UserModel,
-    SuperAdminGuard,
-  ],
-  exports: [AuthService], // Optionally export the AuthService if needed in other modules
+  providers: [AuthService, LocalStrategy, JwtStrategy],
+  exports: [AuthService],
 })
 export class AuthModule {}
