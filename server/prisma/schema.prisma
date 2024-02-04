@@ -1,0 +1,95 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+enum RoleStatus {
+    Active
+    Inactive
+}
+
+enum AccountStatus {
+    ACTIVE
+    DEACTIVATED
+}
+
+enum PermissionEnum {
+    ManageStudents
+    ManageSchoolAdmin
+    ManageAdmins
+}
+
+model User {
+    id                 String              @id @default(uuid())
+    username           String              @unique
+    firstName          String
+    lastName           String
+    email              String?             @unique
+    phoneNumber        String?             @unique
+    password           String
+    role               Roles               @relation(fields: [roleId], references: [id], onDelete: Cascade)
+    roleId             String
+    status             AccountStatus       @default(ACTIVE)
+    isDeactivated      Boolean             @default(false)
+    schoolAdminProfile SchoolAdminProfile?
+  Token                      Token[]
+
+
+    createdAt            DateTime @default(now())
+    updatedAt            DateTime @updatedAt
+    schoolAdminProfileId String?
+}
+
+model Roles {
+    id            String           @id @default(uuid())
+    name          String           @unique
+    status        RoleStatus       @default(Active)
+    permissions   PermissionEnum[]
+    users         User[]
+    isDeactivated Boolean          @default(false)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Token {
+  id           String   @id @default(uuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshToken String?
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("tokens")
+}
+
+model SchoolAdminProfile {
+    id                String @id @default(uuid())
+    username          String @unique
+    password          String
+    schoolName        String
+    schoolAddress     String
+    schoolEmail       String
+    schoolPhoneNumber String
+
+    createdAt DateTime
+    updatedAt DateTime
+    CACFile   CACFile[]
+
+    user   User   @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+    userId String @unique
+}
+
+model CACFile {
+    id                   String             @id @default(uuid())
+    schoolAdminProfileId String
+    schoolAdminProfile   SchoolAdminProfile @relation(fields: [schoolAdminProfileId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+    imageUrl             String
+    createdAt            DateTime
+    updatedAt            DateTime
+}

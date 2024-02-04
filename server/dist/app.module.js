@@ -8,51 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const mongoose_1 = require("@nestjs/mongoose");
-const super_admin_controller_1 = require("./super-admin/super-admin.controller");
-const admin_controller_1 = require("./admin/admin.controller");
-const login_controller_1 = require("./auth/login.controller");
-const user_controller_1 = require("./users/user.controller");
-const school_controller_1 = require("./schools/school.controller");
-const student_controller_1 = require("./students/student.controller");
-const staff_controller_1 = require("./staff/staff.controller");
-const parent_controller_1 = require("./parents/parent.controller");
-const super_admin_service_1 = require("./super-admin/super-admin.service");
-const admin_service_1 = require("./admin/admin.service");
-const login_service_1 = require("./auth/login.service");
-const users_service_1 = require("./users/users.service");
-const school_service_1 = require("./schools/school.service");
-const student_service_1 = require("./students/student.service");
-const staff_service_1 = require("./staff/staff.service");
-const parent_service_1 = require("./parents/parent.service");
+const app_controller_1 = require("./app.controller");
+const app_service_1 = require("./app.service");
+const auth_module_1 = require("./auth/auth.module");
+const school_admin_module_1 = require("./school-admin/school-admin.module");
+const passport_1 = require("@nestjs/passport");
+const logger_module_1 = require("./logging/loggers/nestLogger/logger.module");
+const app_config_1 = require("./app.config");
+const core_1 = require("@nestjs/core");
+const UnauthorizedFilter_1 = require("./misc/UnauthorizedFilter");
+const user_module_1 = require("./user/user.module");
+const prisma_module_1 = require("./prisma/prisma.module");
 let AppModule = class AppModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            mongoose_1.MongooseModule.forRoot('mongodb+srv://sunrise:sunrise@cluster0.o62vzf8.mongodb.net/sunrise'),
+            passport_1.PassportModule,
+            logger_module_1.LoggerModule.register(app_config_1.appConfig.logging.options),
+            auth_module_1.AuthModule,
+            user_module_1.UserModule,
+            prisma_module_1.PrismaModule,
+            school_admin_module_1.SchoolAdminModule,
         ],
-        controllers: [
-            super_admin_controller_1.SuperAdminController,
-            admin_controller_1.AdminController,
-            login_controller_1.LoginController,
-            user_controller_1.UsersController,
-            school_controller_1.SchoolController,
-            student_controller_1.StudentController,
-            staff_controller_1.StaffController,
-            parent_controller_1.ParentController,
-        ],
+        controllers: [app_controller_1.AppController],
         providers: [
-            super_admin_service_1.SuperAdminService,
-            admin_service_1.AdminService,
-            login_service_1.LoginService,
-            users_service_1.UsersService,
-            school_service_1.SchoolService,
-            student_service_1.StudentService,
-            staff_service_1.StaffService,
-            parent_service_1.ParentService,
+            app_service_1.AppService,
+            {
+                provide: core_1.APP_FILTER,
+                useClass: UnauthorizedFilter_1.UnauthorizedFilter,
+            },
         ],
     })
 ], AppModule);
+exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

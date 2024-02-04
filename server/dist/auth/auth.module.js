@@ -9,27 +9,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthModule = void 0;
 const common_1 = require("@nestjs/common");
 const auth_service_1 = require("./auth.service");
-const auth_controller_1 = require("./auth.controller");
-const passport_1 = require("@nestjs/passport");
-const local_strategy_1 = require("./local.strategy");
 const jwt_1 = require("@nestjs/jwt");
-const jwt_strategy_1 = require("./jwt.strategy");
-const users_module_1 = require("../users/users.module");
+const app_config_1 = require("../app.config");
+const auth_controller_1 = require("./auth.controller");
+const auth_guard_1 = require("./auth.guard");
+const auth_strategy_1 = require("./auth.strategy");
+const passport_1 = require("@nestjs/passport");
+const user_module_1 = require("../user/user.module");
 let AuthModule = class AuthModule {
 };
-exports.AuthModule = AuthModule;
-exports.AuthModule = AuthModule = __decorate([
+AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            user_module_1.UserModule,
             passport_1.PassportModule,
             jwt_1.JwtModule.register({
-                secret: 'yourSecretKey',
-                signOptions: { expiresIn: '1h' },
+                secret: app_config_1.appConfig.jwtAccessToken.secret,
+                signOptions: { expiresIn: app_config_1.appConfig.jwtAccessToken.expiresIn },
             }),
-            users_module_1.UsersModule,
+            jwt_1.JwtModule.register({
+                secret: app_config_1.appConfig.jwtRefreshToken.secret,
+                signOptions: { expiresIn: app_config_1.appConfig.jwtRefreshToken.expiresIn },
+            }),
         ],
-        providers: [auth_service_1.AuthService, local_strategy_1.LocalStrategy, jwt_strategy_1.JwtStrategy],
+        providers: [auth_service_1.AuthService, auth_guard_1.SunriseManagementAuthGuard, auth_strategy_1.LocalStrategy],
         controllers: [auth_controller_1.AuthController],
+        exports: [auth_service_1.AuthService],
     })
 ], AuthModule);
+exports.AuthModule = AuthModule;
 //# sourceMappingURL=auth.module.js.map

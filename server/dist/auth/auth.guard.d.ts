@@ -1,7 +1,13 @@
 import { ExecutionContext } from '@nestjs/common';
-declare const JwtAuthGuard_base: import("@nestjs/passport").Type<import("@nestjs/passport").IAuthGuard>;
-export declare class JwtAuthGuard extends JwtAuthGuard_base {
-    canActivate(context: ExecutionContext): boolean | Promise<boolean> | import("rxjs").Observable<boolean>;
-    handleRequest(err: any, user: any, info: any): any;
+import { Reflector } from '@nestjs/core';
+import { UserService } from '../user/user.service';
+import { Observable } from 'rxjs';
+declare const SunriseManagementAuthGuard_base: import("@nestjs/passport").Type<import("@nestjs/passport").IAuthGuard>;
+export declare class SunriseManagementAuthGuard extends SunriseManagementAuthGuard_base {
+    private reflector;
+    private readonly userService;
+    constructor(reflector: Reflector, userService: UserService);
+    canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean>;
+    getMetadata<T>(context: ExecutionContext, key: string): T;
 }
 export {};

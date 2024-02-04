@@ -1,28 +1,90 @@
-import { Controller, Post, Body, Request, UseGuards } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { NestLogger } from '@/logging/loggers/nestLogger/nestLogger';
+import { PrismaService } from '@/prisma/prisma.service';
+import { UserService } from '@/user/user.service';
+import {
+  Controller,
+  HttpCode,
+  Post,
+  Body,
+  HttpStatus,
+  Get,
+  Req,
+  HttpException,
+  UseGuards,
+  BadRequestException,
+  NotFoundException,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LocalAuthGuard } from './local-auth.guard';
+import { IsPublic, SkipUserSetupCheck } from './decorators/public.decorators';
+import { Request } from 'express';
+import { AuthGuard } from '@nestjs/passport';
+import { ApiBearerAuth } from '@nestjs/swagger';
+import { SunriseManagementAuthGuard } from './auth.guard';
+import { UserDetailed } from '@/user/user.dto';
+import { UserConstants } from '@/user/user.constants';
+import {
+  RefreshTokenRequest,
+} from './auth.dto';
+import moment from 'moment';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly prismaService: PrismaService,
+    private readonly nestLogger: NestLogger,
+    private readonly authService: AuthService,
+  ) {}
 
-  @UseGuards(LocalAuthGuard)
+  @IsPublic()
+  @HttpCode(HttpStatus.OK)
   @Post('login')
-  async login(@Request() req) {
-    // Upon successful login, generate JWT token
-    return { access_token: await this.authService.generateJwtToken(req.user) };
+  signIn(@Body() signInDto: Record<string, any>) {
+    return this.authService.signIn(signInDto.email, signInDto.password);
   }
 
-  @Post('register')
-  async register(@Body() userDto: any) {
-    // Register a new user
-    const newUser = await this.authService.register(userDto);
-    return { message: 'User registered successfully', user: newUser };
+  @ApiBearerAuth()
+  @IsPublic()
+  @UseGuards(SunriseManagementAuthGuard)
+  @Get('me')
+  async getCurrentUser(@Req() req: Request): Promise<UserDetailed> {
+    if (!req.context?.authUser) {
+      throw new HttpException('User not setup', HttpStatus.PRECONDITION_FAILED);
+    }
+
+    const { id } = req.context.authUser;
+
+    const user = await this.prismaService.user.findUnique({
+      where: {
+        id: id,
+      },
+      include: UserConstants.StandardIncludeSets.detailed,
+    });
+
+    if (!user) {
+      throw new BadRequestException('Invalid user');
+    }
+
+    // Return the user information
+    return new UserDetailed(user);
   }
 
-  @Post('user')
-  getUser(@Request() req) {
-    // Return user details from the request (assuming the user is authenticated)
-    return req.user;
+  @Post('/refresh')
+  async refreshAccessToken(
+    @Req() req: Request,
+    @Body() data: RefreshTokenRequest,
+  ) {
+    // Verify the refresh token
+    const userId = await this.authService.verifyRefreshToken(data.refreshToken);
+    if (userId) {
+      const user = await this.userService.getUserById(userId);
+      // Generate a new access token
+      const accessToken = await this.authService.generateAccessToken(user);
+      // Return the new access token and new refresh token
+      const refreshToken = await this.authService.generateRefreshToken(user);
+      return { accessToken, refreshToken };
+    }
   }
+
 }

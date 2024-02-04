@@ -1,22 +1,30 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthController } from './auth.controller';
-import { PassportModule } from '@nestjs/passport';
-import { LocalStrategy } from './local.strategy';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from './jwt.strategy';
-import { UsersModule } from '../users/users.module';
+import { appConfig } from '@/app.config';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthController } from './auth.controller';
+import { SunriseManagementAuthGuard } from './auth.guard';
+import { LocalStrategy } from './auth.strategy';
+import { PassportModule } from '@nestjs/passport';
+import { UserModule } from '@/user/user.module';
 
 @Module({
   imports: [
+    UserModule,
     PassportModule,
     JwtModule.register({
-      secret: 'yourSecretKey', // Replace with your own secret key
-      signOptions: { expiresIn: '1h' }, // Adjust the expiration time as needed
+      secret: appConfig.jwtAccessToken.secret,
+      signOptions: { expiresIn: appConfig.jwtAccessToken.expiresIn },
     }),
-    UsersModule,
+    JwtModule.register({
+      secret: appConfig.jwtRefreshToken.secret,
+      signOptions: { expiresIn: appConfig.jwtRefreshToken.expiresIn },
+    }),
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [AuthService, SunriseManagementAuthGuard, LocalStrategy],
   controllers: [AuthController],
+  exports: [AuthService],
 })
 export class AuthModule {}
